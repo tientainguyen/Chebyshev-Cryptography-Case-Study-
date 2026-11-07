@@ -12,7 +12,7 @@ It covers Chebyshev polynomial evaluation, Hill cipher decryption, discrete modu
 - [Repository Structure](#repository-structure)
 - [Modules & Implementations](#modules--implementations)
   - [C1: Chebyshev Evaluation & Hill Cipher Decryption](#c1-chebyshev-evaluation--hill-cipher-decryption)
-  - [C2: Extension – Modular Chebyshev Cryptography ($\mathbb{Z}_p$)](#c2-extension--modular-chebyshev-cryptography-\mathbbz_p)
+  - [C2: Extension – Modular Chebyshev Cryptography (ℤₚ)](#c2-extension--modular-chebyshev-cryptography-ℤₚ)
   - [C3: Equally Spaced vs. Chebyshev Interpolation](#c3-equally-spaced-vs-chebyshev-interpolation)
 - [Requirements & Installation](#requirements--installation)
 - [Usage](#usage)
@@ -53,7 +53,7 @@ This project explores their applications in public-key cryptography, security vu
   * Inverts the $2 \times 2$ matrix $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \pmod{29}$ using modular determinant inversion.
   * Decrypts the ciphertext `"GERPLYNDBX"` back to the original plaintext matrix.
 
-### C2: Extension – Modular Chebyshev Cryptography ($\mathbb{Z}_p$)
+### C2: Extension – Modular Chebyshev Cryptography (ℤₚ)
 * **File:** `c2_modular_chebyshev.py`
 * **Key Tasks:**
   * **Vulnerability Analysis:** Explains why real-number key exchanges are insecure: an attacker can extract secret key $s$ via the continuous arc-cosine identity $s = \frac{\pm \arccos(T_s(x)) + 2\pi k}{\arccos(x)}$.
