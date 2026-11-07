@@ -39,7 +39,6 @@ This project explores their applications in public-key cryptography, security vu
 ├── c1_chebyshev_hill_cipher.py    # Script for C1 (Chebyshev float comparison & Hill cipher)
 ├── c2_modular_chebyshev.py        # Script for C2 (Modular arithmetic key exchange)
 ├── c3_chebyshev_interpolation.py  # Script for C3 (Runge function error table & plots)
-└── requirements.txt               # Dependencies list
 ```
 
 ---
