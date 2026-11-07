@@ -24,7 +24,7 @@ It covers Chebyshev polynomial evaluation, Hill cipher decryption, discrete modu
 
 Chebyshev polynomials $T_n(x)$ possess unique algebraic and trigonometric properties:
 1. **Trigonometric Representation:** $T_n(x) = \cos(n \arccos x)$ for $x \in [-1, 1]$.
-2. **Matrix Recurrence:** $\begin{pmatrix} T_n \\ T_{n+1} \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 2x \end{pmatrix}^n \begin{pmatrix} T_0 \\ T_1 \end{pmatrix}$.
+2. **Matrix Recurrence:** $\left( T_n \atop T_{n+1} \right) = \left( 0 \quad 1 \atop -1 \quad 2x \right)^n \left( T_0 \atop T_1 \right)$
 3. **Commutativity Under Composition:** $T_r(T_s(x)) = T_{rs}(x) = T_s(T_r(x))$.
 
 This project explores their applications in public-key cryptography, security vulnerabilities over continuous real numbers, modular arithmetic fixes, and their optimality in mitigating Runge's phenomenon during function approximation.
@@ -50,7 +50,7 @@ This project explores their applications in public-key cryptography, security vu
 * **Key Tasks:**
   * Computes $T_s(x)$, $T_r(x)$, and $T_{rs}(x)$ for parameters $x = 0.065$, $s = 2731$, $r = 1951$ using matrix powers versus trigonometric formula $\cos(n \arccos x)$.
   * Compares floating-point accuracy between the matrix recurrence and trigonometric approaches.
-  * Inverts the $2 \times 2$ matrix $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \pmod{29}$ using modular determinant inversion.
+  * Inverts the $2 \times 2$ matrix $A = \left( 1 \quad 2 \atop 3 \quad 4 \right) \pmod{29}$ using modular determinant inversion.
   * Decrypts the ciphertext `"GERPLYNDBX"` back to the original plaintext matrix.
 
 ### C2: Extension – Modular Chebyshev Cryptography (ℤₚ)
