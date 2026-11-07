@@ -98,4 +98,4 @@ python c3_chebyshev_interpolation.py
 
 ## Citation & References
 
-* Arangala, Crista. *Linear Algebra With Machine Learning and Data*. CRC Press. Section 4.7: "CASE STUDY: Chebyshev Polynomials and Cryptography," pages 164–167.
+* Arangala, Crista. *Linear Algebra With Machine Learning and Data*. CRC Press. Section 4.7: "CASE STUDY: Chebyshev Polynomials and Cryptography," pages 143–146.
