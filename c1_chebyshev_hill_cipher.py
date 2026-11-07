@@ -27,30 +27,22 @@ for name, val in [("T_s(x)", s), ("T_r(x)", r), ("T_rs(x)", rs)]:
 # --- 2. HILL CIPHER DECRYPTION OF "GERPLYNDBX" ---
 import numpy as np
 
-# Alphabet mapping: A=1, B=2, ..., Z=26
-def char2num(c): return ord(c) - ord('A') + 1
-def num2char(n): return chr(int(n) - 1 + ord('A'))
-
 ciphertext = "GERPLYNDBX"
-nums = [char2num(c) for c in ciphertext]
-
-# FIX 1: Reshape using column-major order ('F')
-M_tilde = np.array(nums).reshape(2, -1, order='F')  # 2 x 5 matrix
-
 A = np.array([[1, 2], [3, 4]])
 mod = 29
 
-det_A = int(round(np.linalg.det(A))) % mod  # det = -2 = 27 mod 29
-det_inv = pow(det_A, -1, mod)               # 27^(-1) mod 29 = 14
+# 1. Convert ciphertext characters to numbers (A=1, B=2, ..., Z=26)
+nums = [ord(c) - ord('A') + 1 for c in ciphertext]
+M_tilde = np.array(nums).reshape(2, -1, order='F')
 
+# 2. Compute A^(-1) mod 29
+det_A = int(round(np.linalg.det(A))) % mod                   # det = 27 mod 29
+det_inv = pow(det_A, -1, mod)                                # 27^(-1) mod 29 = 14
 adj_A = np.array([[A[1, 1], -A[0, 1]], [-A[1, 0], A[0, 0]]]) % mod
 A_inv = (det_inv * adj_A) % mod
 
-# Decrypt M = A^(-1) * M_tilde mod 29
+# 3. Decrypt directly to plaintext string
 M_decrypted = (A_inv @ M_tilde) % mod
+plaintext = "".join(chr(int(n) - 1 + ord('A')) for n in M_decrypted.flatten(order='F'))
 
-# FIX 2: Flatten column-by-column to read characters in correct sequence
-plaintext = "".join(num2char(num) for num in M_decrypted.flatten(order='F'))
-
-print(f"Decrypted Matrix:\n{M_decrypted}")
 print(f"Decrypted Message: {plaintext}")
